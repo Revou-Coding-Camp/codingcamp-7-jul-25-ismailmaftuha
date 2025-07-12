@@ -14,10 +14,16 @@
         <input type="date" id="todo-date" required />
         <button type="submit" class="add-btn">+</button>
       </form>
+
       <div class="controls">
-        <button id="filter-btn" class="filter-btn">FILTER</button>
+        <select id="filter-status" class="filter-dropdown">
+          <option value="all">FILTER</option>
+          <option value="pending">Pending</option>
+          <option value="done">Done</option>
+        </select>
         <button id="delete-all-btn" class="delete-btn">DELETE ALL</button>
       </div>
+
       <table>
         <thead>
           <tr>

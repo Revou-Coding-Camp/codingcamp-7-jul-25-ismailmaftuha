@@ -3,8 +3,10 @@ const todoInput = document.getElementById("todo-input");
 const todoDate = document.getElementById("todo-date");
 const todoList = document.getElementById("todo-list");
 const deleteAllBtn = document.getElementById("delete-all-btn");
+const filterDropdown = document.getElementById("filter-status");
 
 let todos = [];
+let filterStatus = "all";
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -23,15 +25,25 @@ deleteAllBtn.addEventListener("click", () => {
   renderTodos();
 });
 
+filterDropdown.addEventListener("change", () => {
+  filterStatus = filterDropdown.value;
+  renderTodos();
+});
+
 function renderTodos() {
   todoList.innerHTML = "";
 
-  if (todos.length === 0) {
+  const filteredTodos = todos.filter((todo) => {
+    if (filterStatus === "all") return true;
+    return todo.status.toLowerCase() === filterStatus;
+  });
+
+  if (filteredTodos.length === 0) {
     todoList.innerHTML = "<tr><td colspan='4'>No task found</td></tr>";
     return;
   }
 
-  todos.forEach((todo, index) => {
+  filteredTodos.forEach((todo, index) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${todo.text}</td>

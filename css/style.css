@@ -1,4 +1,3 @@
-/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +62,21 @@ input[type="date"] {
   margin-bottom: 15px;
 }
 
-.filter-btn,
+.filter-dropdown {
+  background-color: #274c77;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filter-dropdown option {
+  background-color: #fff;
+  color: #2b2d42;
+}
+
 .delete-btn {
   background-color: #274c77;
   border: none;
@@ -74,7 +87,6 @@ input[type="date"] {
   transition: background 0.3s;
 }
 
-.filter-btn:hover,
 .delete-btn:hover {
   background-color: #3c6e91;
 }
